@@ -1,0 +1,55 @@
+.header-navbar-container{
+    background:#FAFEFF;
+    min-height:100px;
+    padding:0px 5%!important;
+  }
+  
+  .header-navbar-row{
+    margin:auto;
+  }
+  
+  .gob-logo{
+    max-width: 300px;
+  }
+  
+  .menu-container{
+    font-family:'OlympusMount';
+    width:100%;
+    display: inline-flex;
+    place-content: flex-end;
+    padding:30px 0;
+  }
+  
+  .menu-item{
+    float:left;
+    font-size:20px;
+    padding:0px 22px!important;
+    color:#88CFF1!important;
+  }
+  
+  .menu-item:hover{
+    color:#F3C2C2!important;
+  }
+  
+  .navbar-light .navbar-toggler {
+    color: #88cff1!important;
+    border-color: #88cff1!important;
+    border-width:2px!important;
+  }
+
+  .navbar-icons{
+    padding-top:25px;
+    font-size:20px;
+    color:#88CFF1;
+  }
+
+  @media (max-width: 767px) {
+    .gob-logo-container{
+      margin:auto;
+    }
+  
+    .menu-item {
+      padding: 5px 0px!important;
+    } 
+  
+  }
