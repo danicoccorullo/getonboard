@@ -1,0 +1,25 @@
+.item-count-container{
+    text-align: center;
+    margin: 20px auto 10px!important;
+}
+
+.button-sub,.button-add,.count-display,.button-add-cart{
+    display: inline-block;
+}
+
+.count-display{
+    padding:6px 30px;
+    border:1px solid #efefef;
+}
+
+.button-add-cart{
+    margin-left:5px;
+}
+
+.add-to-cart-message.success{
+    color:green;
+}
+
+.add-to-cart-message.error{
+    color:red;
+}
