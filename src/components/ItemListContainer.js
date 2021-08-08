@@ -1,7 +1,7 @@
 
 import {Container,Row,Col} from 'react-bootstrap';
 import './css/ItemListContainer.css'
-import ItemCount from './ItemCount'
+import ItemList from './ItemList'
 
 function ItemListContainer(props){
     let greeting = props.greeting;
@@ -10,8 +10,10 @@ function ItemListContainer(props){
             <Row>
                 <Col md={12}>
                     <h1>{greeting}</h1>
-                    <ItemCount initial={1} stock={8} />
                 </Col>
+            </Row>
+            <Row>
+                <ItemList />
             </Row>
         </Container>
     );

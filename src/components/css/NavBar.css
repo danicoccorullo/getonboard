@@ -24,11 +24,11 @@
     float:left;
     font-size:20px;
     padding:0px 22px!important;
-    color:#88CFF1!important;
+    color:#88cff1!important;
   }
   
   .menu-item:hover{
-    color:#F3C2C2!important;
+    color:#5BA3C4!important;
   }
   
   .navbar-light .navbar-toggler {
@@ -40,7 +40,11 @@
   .navbar-icons{
     padding-top:25px;
     font-size:20px;
-    color:#88CFF1;
+    color:#88cff1;
+  }
+
+  .navbar-icons:hover{
+    color:#5BA3C4!important;
   }
 
   @media (max-width: 767px) {

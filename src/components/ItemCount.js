@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {Container, Row, Col, Button} from 'react-bootstrap';
 import './css/ItemCount.css';
 
@@ -28,7 +28,7 @@ function ItemCount({stock, initial}){
     return (
         <Container>
             <Row>
-                <Col md={4} className="item-count-container">
+                <Col className="item-count-container">
                     <Button variant="light" className="button-sub" text="-" onClick={() => setItemCount(itemCount - 1)}>-</Button>
                     <div className="count-display">{itemCount}</div>
                     <Button variant="light" className="button-add" text="+" onClick={() => setItemCount(itemCount + 1)}>+</Button>
@@ -36,7 +36,7 @@ function ItemCount({stock, initial}){
                 </Col>
             </Row>
             <Row>
-                <Col md={4} className="item-count-container">
+                <Col md={12} className="item-count-container">
                     <div className={addedItems ? "add-to-cart-message success" : "add-to-cart-message error"}>{addToCartMessage}</div>
                 </Col>
             </Row>

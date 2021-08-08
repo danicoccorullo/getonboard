@@ -1,6 +1,7 @@
 .item-count-container{
     text-align: center;
     margin: 20px auto 10px!important;
+    height:25px;
 }
 
 .button-sub,.button-add,.count-display,.button-add-cart{
@@ -10,6 +11,11 @@
 .count-display{
     padding:6px 30px;
     border:1px solid #efefef;
+}
+
+button.button-add-cart.btn.btn-light,button.button-sub.btn.btn-light,button.button-add.btn.btn-light{
+    background: #5BA3C4;
+    color: white;
 }
 
 .button-add-cart{
