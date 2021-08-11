@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Item from './Item';
+import Loader from './Loader';
 
 function ItemList(){
 
     const [items, setItems] = useState([]);
+    const [pageLoading, setPageLoading] = useState(true);
 
     useEffect(() => {
         new Promise((resolve,reject) => {
@@ -55,6 +57,11 @@ function ItemList(){
         })
         .then((dataResolve) => {
             setItems(dataResolve);
+            const loading = document.querySelector(".loader-container");
+            if (loading) {
+                loading.remove();
+                setPageLoading(!pageLoading);
+            }
         })
         .catch((error) => {
             console.log("Error en la carga de datos", error);
@@ -63,6 +70,7 @@ function ItemList(){
 
     return (
         <>
+        <Loader/>
             {
             items.map((item) => (
                 <Item key={item.id} id={item.id} name={item.name} description={item.description} price={item.price} pictureURL={item.pictureURL}/>                    
