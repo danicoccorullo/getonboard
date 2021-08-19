@@ -46,6 +46,7 @@
   .navbar-icons:hover{
     color:#5BA3C4!important;
   }
+  
 
   @media (max-width: 767px) {
     .gob-logo-container{
@@ -54,6 +55,19 @@
   
     .menu-item {
       padding: 5px 0px!important;
-    } 
+    }
+    
+    .gob-logo-container {
+        text-align: center;
+    }
+
+    .navbar-icons{
+      padding-top:10px;
+    }
+
+    .navbar-light .navbar-toggler{
+      margin-top:5px;
+      margin-bottom:5px;
+    }
   
   }
