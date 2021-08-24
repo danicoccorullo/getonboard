@@ -4,7 +4,7 @@ import {Col} from 'react-bootstrap';
 function Loader(){
     return(
         <Col md={{ span: 4, offset: 4 }} className="loader-container">
-            <img src={gifLoader} />
+            <img alt="loader" src={gifLoader} />
         </Col>
     )
 }

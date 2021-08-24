@@ -1,4 +1,3 @@
-import ItemCount from './ItemCount';
 import {Col, Button} from 'react-bootstrap';
 import './css/Item.css';
 import {Link} from 'react-router-dom';
