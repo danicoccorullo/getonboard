@@ -26,6 +26,7 @@
 
 .product-detail-category {
     color: #727272;
+    text-transform: capitalize;
 }
 
 .product-detail-category span{

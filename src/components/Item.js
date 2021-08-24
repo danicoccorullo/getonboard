@@ -1,6 +1,7 @@
 import ItemCount from './ItemCount';
-import {Col} from 'react-bootstrap';
+import {Col, Button} from 'react-bootstrap';
 import './css/Item.css';
+import {Link} from 'react-router-dom';
 
 function Item(props){
 
@@ -13,7 +14,7 @@ function Item(props){
                 <div className="product-title">{name}</div>
                 <div className="product-description">{description}</div>
                 <div className="product-price">${price}</div>
-                <ItemCount initial={1} stock={8} />
+                <Link to={`/item/${id}`} className="button-add-cart"><Button variant="light" className="button-add-cart">Ver Más</Button></Link>
             </div>
         </Col>
     )
