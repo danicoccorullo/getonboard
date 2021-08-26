@@ -18,10 +18,6 @@ button.button-add-cart.btn.btn-light,button.button-sub.btn.btn-light,button.butt
     color: white;
 }
 
-.button-add-cart{
-    margin-left:5px;
-}
-
 .add-to-cart-message.success{
     color:green;
 }

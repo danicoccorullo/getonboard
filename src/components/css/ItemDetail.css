@@ -42,3 +42,17 @@
     padding-left: 0px;
     margin-left: -10px!important;
 }
+
+.button-checkout {
+    background: #5BA3C4;
+    color: white;
+    padding: 10px 10px;
+    text-decoration: none;
+    margin-top: 30px;
+    float: left;
+    border-radius: 4px;
+}
+
+.button-checkout:hover {
+    color: white;
+}

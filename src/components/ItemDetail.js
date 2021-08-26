@@ -1,11 +1,15 @@
 import ItemCount from './ItemCount';
 import {Container,Row,Col} from 'react-bootstrap';
 import './css/ItemDetail.css';
+import {useState} from 'react';
+import {Link} from 'react-router-dom';
 
 
 function ItemDetail(props){
 
     const {id, pictureURL, name, description, category, price} = props;
+
+    const [items, setItems] = useState(0);
 
     return(
         <Container>
@@ -22,7 +26,8 @@ function ItemDetail(props){
                         <div className="product-detail-description">{description}</div>
                         <div className="product-detail-category"><span>Categoria:</span> {category}</div>
                         <div className="product-detail-count">
-                            <ItemCount initial={1} stock={8} />
+                            <ItemCount items={items} stock={8} onAdd={setItems}/>
+                            {items > 0 && <Link to={`/cart`} className="button-checkout">Terminar compra</Link>}
                         </div>
                     </div>
                 </Col>
