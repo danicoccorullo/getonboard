@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
 import {Container, Row, Col, Button} from 'react-bootstrap';
 import './css/ItemCount.css';
 
 function ItemCount({items, stock, onAdd}){
 
     const itemAdd = () => {
-        console.log("sum", items, stock);
         if (items < stock) {
           onAdd(items + 1);
         }

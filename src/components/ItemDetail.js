@@ -1,15 +1,35 @@
 import ItemCount from './ItemCount';
 import {Container,Row,Col} from 'react-bootstrap';
 import './css/ItemDetail.css';
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import {Link} from 'react-router-dom';
-
+import {CartContext} from './CartContext';
+import {productos} from './data/productsData';
 
 function ItemDetail(props){
 
     const {id, pictureURL, name, description, category, price} = props;
-
     const [items, setItems] = useState(0);
+
+    const { products, setProducts, webCart, webSetCart } = useContext(
+        CartContext
+      );
+
+    const addItem = () => {
+        const cartVar = [...webCart];
+        const prodInfo = {'productId': id, 'name': name, 'price': price, 'qty': items}
+        let isInCart = false; 
+        cartVar.map(cartItems => {
+            if(cartItems['productId'] == prodInfo['productId']) {
+                cartItems['qty'] = cartItems['qty'] + items;
+                isInCart = true;
+            }}
+        );
+        if(!isInCart){
+            cartVar.push(prodInfo);
+        }
+        webSetCart(cartVar);
+    }
 
     return(
         <Container>
@@ -27,7 +47,9 @@ function ItemDetail(props){
                         <div className="product-detail-category"><span>Categoria:</span> {category}</div>
                         <div className="product-detail-count">
                             <ItemCount items={items} stock={8} onAdd={setItems}/>
-                            {items > 0 && <Link to={`/cart`} className="button-checkout">Terminar compra</Link>}
+                            <CartContext.Provider value={{items, setItems}}>
+                                {items > 0 && <Link to={`/cart`} className="button-checkout" onClick={addItem}>Terminar compra</Link>}
+                            </CartContext.Provider>
                         </div>
                     </div>
                 </Col>

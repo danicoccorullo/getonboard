@@ -1,6 +1,6 @@
 export const productos = [
     {
-        id: "0001",
+        id: "1",
         name: "Funda para Celular Tokio",
         description: "Funda suave de silicona de alta calidad, antiarañazos, resistente a la suciedad.",
         price: "850",
@@ -8,7 +8,7 @@ export const productos = [
         pictureURL:"https://ae01.alicdn.com/kf/Hd9449647684645818650d6961b15b6a6i/Funda-de-tel-fono-de-primera-clase-para-iPhone-funda-trasera-de-silicona-suave-con-billete.jpg_640x640.jpg"
     },
     {
-        id: "0002",
+        id: "2",
         name: "Funda de Pasaporte Travel",
         description: "Funda de pasaporte de viaje, soporte de dirección de identificación de cuero Pu.",
         price: "900",
@@ -16,7 +16,7 @@ export const productos = [
         pictureURL:"https://ae01.alicdn.com/kf/H7d9f843d5ef54298b71871f4d59dfb80Q/Funda-de-pasaporte-de-viaje-para-hombre-y-mujer-cartera-creativa-con-letras-soporte-de-direcci.jpg_Q90.jpg_.webp"
     },
     {
-        id: "0003",
+        id: "3",
         name: "Almohada de viaje",
         description: "Almohada de viaje en forma de U con partículas de espuma, varios colores.",
         price: "1200",
@@ -24,7 +24,7 @@ export const productos = [
         pictureURL:"https://ae01.alicdn.com/kf/H98a7fa921a794807b35249e38fa7d3ccW/Almohada-de-viaje-en-forma-de-U-con-part-culas-de-espuma-supersuaves-coj-n-suave.jpg_Q90.jpg_.webp"
     },
     {
-        id: "0004",
+        id: "4",
         name: "Toalla de microfibra",
         description: "Toalla de microfibra para viajes, secado rápido, súper absorbente. Varios colores.",
         price: "2000",
@@ -32,7 +32,7 @@ export const productos = [
         pictureURL:"https://ae01.alicdn.com/kf/HTB1Vr4KXtfvK1RjSszhq6AcGFXa7/Toallas-de-microfibra-para-viajes-deportivas-secado-r-pido-s-per-absorbentes-Ultra-suaves-ligeras-para.jpg_Q90.jpg_.webp"
     },
     {
-        id: "0005",
+        id: "5",
         name: "Funda para valija",
         description: "Cubierta protectora con elástico para equipaje con carrito. Varios modelos y colores",
         price: "1400",
@@ -40,7 +40,7 @@ export const productos = [
         pictureURL:"https://ae01.alicdn.com/kf/Hd73e34bdf44f4edfbcc538670a826418E/Mundo-mapa-viaje-cubierta-protectora-para-maletas-equipaje-con-Trolley-cubierta-de-bolsa-de-los-hombres.jpg_Q90.jpg_.webp"
     },
     {
-        id: "006",
+        id: "6",
         name: "Set organizadores de viaje",
         description: "Set de 8 unidades para ropa y artículos de viaje. Varios colores.",
         price: "1500",
