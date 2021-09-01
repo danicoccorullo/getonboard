@@ -5,7 +5,15 @@ import './css/Cart.css';
 
 function Cart(){
 
-    const { webCart,setWebCart, cartItems } = useContext(CartContext);
+    const { webCart, setWebCart, cartItems } = useContext(CartContext);
+    
+    let itemCartId = 0;
+
+    const removeItem = (prodId) => {
+        const newCart = webCart.filter(prod => prod.productId != prodId)
+        console.log(newCart);
+        setWebCart(newCart);
+    }
 
     return (
         <Container className="home-container">
@@ -15,14 +23,16 @@ function Cart(){
             </Col>
         </Row>
         <Row className="cartInfoContainer">
-            <Col md={4}><p>Nombre</p></Col>
-            <Col md={4}><p>Cantidad</p></Col>
-            <Col md={4}><p>Precio Total</p></Col>
-            {webCart.map(cartProd => (
+            <Col md={3}><p>Nombre</p></Col>
+            <Col md={3}><p>Cantidad</p></Col>
+            <Col md={3}><p>Precio Total</p></Col>
+            <Col md={3}><p></p></Col>
+            {webCart.map((cartProd,index) => (
                 <>
-                <Col md={4}><p>{cartProd.name}</p></Col>
-                <Col md={4}><p>{cartProd.qty}</p></Col>
-                <Col md={4}><p>${Number(cartProd.price)*Number(cartProd.qty)}</p></Col>
+                <Col md={3}><p>{cartProd.name}</p></Col>
+                <Col md={3}><p>{cartProd.qty}</p></Col>
+                <Col md={3}><p>${Number(cartProd.price)*Number(cartProd.qty)}</p></Col>
+                <Col md={3}><Button onClick={() => removeItem(cartProd.productId)}>Quitar</Button></Col>
                 </>
             ))}
         </Row>

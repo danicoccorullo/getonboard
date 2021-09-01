@@ -4,14 +4,13 @@ import './css/ItemDetail.css';
 import {useState, useContext} from 'react';
 import {Link} from 'react-router-dom';
 import {CartContext} from './CartContext';
-import {productos} from './data/productsData';
 
 function ItemDetail(props){
 
     const {id, pictureURL, name, description, category, price} = props;
     const [items, setItems] = useState(0);
 
-    const { products, setProducts, webCart, webSetCart } = useContext(
+    const { products, setProducts, webCart, setWebCart } = useContext(
         CartContext
       );
 
@@ -20,7 +19,7 @@ function ItemDetail(props){
         const prodInfo = {'productId': id, 'name': name, 'price': price, 'qty': items}
         let isInCart = false; 
         cartVar.map(cartItems => {
-            if(cartItems['productId'] == prodInfo['productId']) {
+            if(cartItems['productId'] === prodInfo['productId']) {
                 cartItems['qty'] = cartItems['qty'] + items;
                 isInCart = true;
             }}
@@ -28,7 +27,7 @@ function ItemDetail(props){
         if(!isInCart){
             cartVar.push(prodInfo);
         }
-        webSetCart(cartVar);
+        setWebCart(cartVar);
     }
 
     return(
