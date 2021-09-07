@@ -1,5 +1,47 @@
-.cartInfoContainer{
+.cartInfoContainer, .cartActionsContainer{
     background-color:white;
     padding:30px 10px;
     border-radius: 8px;
+    margin-top:15px!important;
+}
+
+.cartInfoContainer h3, .cartActionsContainer h3{
+    color:#88cff1;
+    font-family:'OlympusMount';
+    font-size:20px;
+}
+
+.cartInfoContainer p{
+    padding:10px 0px;
+}
+
+.cart-empty-msg{
+    padding-bottom:20px;
+}
+
+svg.svg-inline--fa.fa-trash-alt {
+    font-size: 22px;
+    color:#88cff1;
+    margin-top: 10px;
+}
+
+svg.svg-inline--fa.fa-trash-alt:hover {
+    color:#5BA3C4;
+}
+
+.cart-item-count{
+    background:#5BA3C4;
+    color:white;
+    width:20px;
+    height:20px;
+    font-size:12px;
+    border-radius:10px;
+    text-align:center;
+    float:left;
+    padding-top:1px;
+}
+
+.cart-icon{
+    float:left;
+    padding-right:2px;
 }

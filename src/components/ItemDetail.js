@@ -3,20 +3,22 @@ import {Container,Row,Col} from 'react-bootstrap';
 import './css/ItemDetail.css';
 import {useState, useContext} from 'react';
 import {Link} from 'react-router-dom';
-import {CartContext} from './CartContext';
+import {CartContext} from './context/CartContext';
 
 function ItemDetail(props){
 
     const {id, pictureURL, name, description, category, price} = props;
     const [items, setItems] = useState(0);
 
-    const { products, setProducts, webCart, setWebCart } = useContext(
+    const { webCart, setWebCart, cartTotalItems, setCartTotalItems, cartTotalPrice, setCartTotalPrice } = useContext(
         CartContext
       );
 
     const addItem = () => {
         const cartVar = [...webCart];
         const prodInfo = {'productId': id, 'name': name, 'price': price, 'qty': items}
+        setCartTotalItems(cartTotalItems + items);
+        setCartTotalPrice(cartTotalPrice + price*items);
         let isInCart = false; 
         cartVar.map(cartItems => {
             if(cartItems['productId'] === prodInfo['productId']) {
@@ -47,7 +49,7 @@ function ItemDetail(props){
                         <div className="product-detail-count">
                             <ItemCount items={items} stock={8} onAdd={setItems}/>
                             <CartContext.Provider value={{items, setItems}}>
-                                {items > 0 && <Link to={`/cart`} className="button-checkout" onClick={addItem}>Terminar compra</Link>}
+                                {items > 0 && <Link to={`/cart`} className="button-checkout" onClick={addItem}>Agregar al Carrito</Link>}
                             </CartContext.Provider>
                         </div>
                     </div>

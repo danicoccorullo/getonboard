@@ -40,10 +40,13 @@
   .navbar-icons{
     padding-top:25px;
     font-size:20px;
-    color:#88cff1;
   }
 
-  .navbar-icons:hover{
+  .navbar-icons a {
+    color:#88cff1;
+}
+
+  .navbar-icons a:hover{
     color:#5BA3C4!important;
   }
   
