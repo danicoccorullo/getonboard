@@ -2,13 +2,15 @@ import {Container,Row,Col} from 'react-bootstrap';
 import './css/ItemListContainer.css';
 import ItemList from './ItemList';
 import Loader from './Loader';
-import { productos } from './data/productsData';
 import {useParams, useLocation} from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import { getData } from './firebase';
+import { collection, getDocs } from 'firebase/firestore';
 
 
 function ItemListContainer(props){
-    const [items, setItems] = useState([]);
+    const [prods, setProds] = useState([]);
+    const [currentProds, setCurrentProds] = useState([]);
     const [pageLoading, setPageLoading] = useState(true);
     let location = useLocation();
 
@@ -19,21 +21,30 @@ function ItemListContainer(props){
     }
 
     useEffect(() => {
-        setPageLoading(true);
-        new Promise((resolve,reject) => {
+        const getProds = async() => {
+            setPageLoading(true);
+            const prodsCollection = collection(getData(),'products');
+            const prodsSnapshot = await getDocs(prodsCollection);
+            const prodsList = prodsSnapshot.docs.map( doc => ({id: doc.id, ...doc.data()}));
             if (category){
-                setTimeout(() => resolve(productos.filter((item) => item.category === category)),2000);
+                const catProds = prodsList.filter((item) => item.category === category);
+                setCurrentProds(catProds);
             } else {
-                setTimeout(() => resolve(productos),2000);
+                setCurrentProds(prodsList);
             }
-        })
-        .then((dataProdsResolve) => {
-            setItems(dataProdsResolve);
             setPageLoading(false);
-        })
-        .catch((errorProds) => {
-            console.log("Error en la carga de datos", errorProds);
-        });
+            setProds(prodsList);
+        }
+        getProds();
+    }, []);
+
+    useEffect(() => {
+        if (category){
+            const catProds = prods.filter((item) => item.category === category);
+            setCurrentProds(catProds);
+        } else {
+            setCurrentProds(prods);
+        }
     }, [location]);
 
     if(pageLoading){
@@ -50,7 +61,7 @@ function ItemListContainer(props){
                     </Col>
                 </Row>
                 <Row>
-                    <ItemList items={items} />
+                    <ItemList items={currentProds} />
                 </Row>
             </Container>
         );
