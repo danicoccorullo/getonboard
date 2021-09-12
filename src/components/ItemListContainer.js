@@ -5,7 +5,7 @@ import Loader from './Loader';
 import {useParams, useLocation} from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { getData } from './firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 
 
 function ItemListContainer(props){
@@ -26,26 +26,19 @@ function ItemListContainer(props){
             const prodsCollection = collection(getData(),'products');
             const prodsSnapshot = await getDocs(prodsCollection);
             const prodsList = prodsSnapshot.docs.map( doc => ({id: doc.id, ...doc.data()}));
+            setPageLoading(false);
+            setProds(prodsList);
             if (category){
-                const catProds = prodsList.filter((item) => item.category === category);
-                setCurrentProds(catProds);
+                const prodsCategory = query(prodsCollection, where("category", "==", category));
+                const prodsCategorySnapshot = await getDocs(prodsCategory);
+                const prodsCategoryList = prodsCategorySnapshot.docs.map( doc => ({id: doc.id, ...doc.data()}));
+                setCurrentProds(prodsCategoryList);
             } else {
                 setCurrentProds(prodsList);
             }
-            setPageLoading(false);
-            setProds(prodsList);
         }
         getProds();
-    }, []);
-
-    useEffect(() => {
-        if (category){
-            const catProds = prods.filter((item) => item.category === category);
-            setCurrentProds(catProds);
-        } else {
-            setCurrentProds(prods);
-        }
-    }, [location]);
+    }, [,location]);
 
     if(pageLoading){
         return (
