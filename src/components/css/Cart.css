@@ -45,3 +45,36 @@ svg.svg-inline--fa.fa-trash-alt:hover {
     float:left;
     padding-right:2px;
 }
+
+.button-cart-checkout{
+    background: #5BA3C4!important;
+    color: white!important;
+    cursor: pointer;
+    text-decoration: none;
+    padding: .33rem .75rem!important;
+}
+
+.order-message{
+    color:green;
+    padding-top:20px;
+}
+
+label.form-label {
+    color: #88cff1;
+    font-family: 'OlympusMount';
+    font-size: 20px;
+    float:left;
+}
+
+form.cartInfoContainer .mb-3 {
+    padding-bottom: 10px;
+}
+
+form.cartInfoContainer {
+    min-height: 450px;
+}
+
+.title-clientes-datos{
+    padding-bottom:20px;
+    font-size:24px!important;
+}

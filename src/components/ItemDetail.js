@@ -7,7 +7,7 @@ import {CartContext} from './context/CartContext';
 
 function ItemDetail(props){
 
-    const {id, pictureURL, name, description, category, price} = props;
+    const {id, pictureURL, name, description, category, price, stock} = props;
     const [items, setItems] = useState(0);
 
     const { webCart, setWebCart, cartTotalItems, setCartTotalItems, cartTotalPrice, setCartTotalPrice } = useContext(
@@ -47,7 +47,7 @@ function ItemDetail(props){
                         <div className="product-detail-description">{description}</div>
                         <div className="product-detail-category"><span>Categoria:</span> {category}</div>
                         <div className="product-detail-count">
-                            <ItemCount items={items} stock={8} onAdd={setItems}/>
+                            <ItemCount items={items} stock={stock} onAdd={setItems}/>
                             <CartContext.Provider value={{items, setItems}}>
                                 {items > 0 && <Link to={`/cart`} className="button-checkout" onClick={addItem}>Agregar al Carrito</Link>}
                             </CartContext.Provider>

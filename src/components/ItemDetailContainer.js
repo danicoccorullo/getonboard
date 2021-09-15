@@ -17,7 +17,7 @@ function ItemDetailContainer(){
             const prodsCollection = collection(getData(),'products');
             const prodsSnapshot = await getDocs(prodsCollection);
             const prodsList = prodsSnapshot.docs.map( doc => ({id: doc.id, ...doc.data()}));
-            const singleProd = prodsList.filter((item) => item.id == id);
+            const singleProd = prodsList.filter((item) => item.id === id);
             setPageLoading(false);
             setProd(singleProd);
         }
@@ -36,7 +36,7 @@ function ItemDetailContainer(){
             <>
                 {
                     prod.map((itemD) => (
-                        <ItemDetail key={itemD.id} id={itemD.id} name={itemD.name} description={itemD.description} price={itemD.price} category={itemD.category} pictureURL={itemD.pictureURL}/>
+                        <ItemDetail key={itemD.id} id={itemD.id} name={itemD.name} description={itemD.description} price={itemD.price} category={itemD.category} pictureURL={itemD.pictureURL} stock={itemD.stock}/>
                     ))
                 }
             </>                    
