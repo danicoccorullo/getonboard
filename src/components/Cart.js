@@ -2,21 +2,12 @@ import {Container,Row,Col,Button} from 'react-bootstrap';
 import {CartContext} from './context/CartContext';
 import {useContext} from 'react';
 import {Link} from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import OrderBrief from './OrderBrief';
 import './css/Cart.css';
 
 function Cart(){
 
     const { webCart, setWebCart, cartTotalItems, setCartTotalItems, cartTotalPrice, setCartTotalPrice} = useContext(CartContext);
-
-    const removeItem = (prodId) => {
-        const newCart = webCart.filter(prod => prod.productId !== prodId)
-        const deleteItems = webCart.filter(prod => prod.productId === prodId);
-        setWebCart(newCart);
-        setCartTotalItems(cartTotalItems - deleteItems[0].qty);
-        setCartTotalPrice(cartTotalPrice - (deleteItems[0].qty * deleteItems[0].price));
-    }
 
     const clearCart = () => {
         const clear = [];
@@ -33,21 +24,8 @@ function Cart(){
                 </Col>
             </Row>
             {(webCart.length > 0) ? (
-                    <div>
-                    <Row className="cartInfoContainer">
-                    <Col md={3}><h3>NOMBRE</h3></Col>
-                    <Col md={3}><h3>CANTIDAD</h3></Col>
-                    <Col md={3}><h3>PRECIO TOTAL</h3></Col>
-                    <Col md={3}><h3></h3></Col>
-                    {webCart.map((cartProd) => (
-                        <>
-                        <Col md={3}><p>{cartProd.name}</p></Col>
-                        <Col md={3}><p>{cartProd.qty}</p></Col>
-                        <Col md={3}><p>${Number(cartProd.price)*Number(cartProd.qty)}</p></Col>
-                        <Col md={3}><Link onClick={() => removeItem(cartProd.productId)}><FontAwesomeIcon icon={faTrashAlt} /></Link></Col> 
-                        </>
-                    ))}
-                </Row>
+                <div>
+                <OrderBrief canRemove={true} />
                 <Row>
                     <Col md={{span:4,offset:8}} className="cartActionsContainer">
                         <div><h3>TOTAL: ${cartTotalPrice} </h3></div>
@@ -55,7 +33,7 @@ function Cart(){
                         <Button onClick={clearCart} variant="light" className="button-add-cart">Vaciar Carrito</Button>
                     </Col>
                 </Row>
-                    </div>
+                </div>
                 ) : (
                     <Row className="cartInfoContainer">
                     <Col md={12} className="cart-empty-msg">No hay productos en el carrito.</Col>

@@ -2,9 +2,13 @@
 
 Proyecto de Tienda Ecommerce de artículos de viaje desarrollada con ReactJS.
 
-![Get On Board](https://github.com/danicoccorullo/getonboard/blob/main/get-on-board.gif)
+El mismo cuenta con su Home, una Página de Productos, acceso a sus Categorías mediante un menú de navegación y al Detalle de cada uno de los Productos. 
 
-El mismo cuenta con su Home, una Página de Productos, acceso a sus Categorías mediante un menú de navegación y al Detalle de cada uno de los Productos.
+Es posible añadir Productos al Carrito, seleccionando el stock deseado. A su vez, se podrá acceder al Checkout donde, luego de completar sus datos, el cliente podrá registrar una orden y obtener un número de Orden una vez realizado su pedido. 
+
+## Navegación de la app
+
+![Get On Board](https://github.com/danicoccorullo/getonboard/blob/main/get-on-board.gif)
 
 ## Available Scripts
 
