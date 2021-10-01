@@ -14,6 +14,8 @@ Es posible añadir Productos al Carrito, seleccionando el stock deseado. A su ve
 
 Iniciar el proyecto de forma local:
 
+### `npm i`
+
 ### `npm start`
 
 Podrá ver la aplicación en [http://localhost:3000](http://localhost:3000) desde el navegador. 
